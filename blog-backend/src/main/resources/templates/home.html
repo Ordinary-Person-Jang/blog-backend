@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en", xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class ="container">
+    <div th:if="${member != null}">
+        <p th:text="|${member.nickName}|">회원 닉네임</p>
+    </div>
+    <div th:if="${member == null}">
+        <button th:onclick="|location.href='@{/members/new}'|">회원가입</button>
+        <button th:onclick="|location.href='@{/login}'|">로그인</button>
+    </div>
+    <div th:if="${member != null}">
+        <button th:onclick="|location.href='@{/members/new}'|">회원추가</button>
+        <form th:action="@{/logout}" method="post">
+        <button type="submit">로그아웃</button>
+        </form>
+    </div>
+
+
+</div>
+</body>
+</html>

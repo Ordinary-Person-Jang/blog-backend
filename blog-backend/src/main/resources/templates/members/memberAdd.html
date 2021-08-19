@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h2>회원 생성</h2>
+        <hr>
+    </div>
+    <form action="/members/new" th:object="${memberForm}" method="post">
+        <div>
+            <label th:for="email">이메일</label>
+            <input type="text" id="email" th:field="*{email}" placeholder="이메일을 입력해주세요"
+                   th:class="${#fields.hasErrors('email')}? 'form-contolfieldError' : 'form-control'">
+            <p class="field-error" th:errors="*{email}">이메일 오류</p>
+        </div>
+        <div class="form-group">
+            <label th:for="password">비밀번호</label>
+            <input type="password" th:field="*{password}" placeholder="영문,숫자,특수기호를 포함한 8~20글자">
+            <p class="field-error" th:errors="*{password}">패스워드 오류</p>
+        </div>
+        <div class="form-group">
+            <label th:for="nickName">닉네임</label>
+            <input type="text" th:field="*{nickName}" placeholder="4~16글자">
+            <p class="field-error" th:errors="*{nickName}">닉네임 오류</p>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <button th:onclick="|location.href='@{/}'|">취소</button>
+
+</div>
+</body>
+</html>
