@@ -10,6 +10,8 @@ spring:
     username: root
     password: jang6955
     driver-class-name: com.mysql.jdbc.Driver
+  messages:
+    basename: errors
 
   jpa:
     hibernate:

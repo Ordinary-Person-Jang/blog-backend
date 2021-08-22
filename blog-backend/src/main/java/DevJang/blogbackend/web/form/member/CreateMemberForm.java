@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 @Data
 public class CreateMemberForm {
     @NotBlank
-    private String Email;
+    private String email;
 
     @NotNull
     @Size(min = 8, max = 20)
